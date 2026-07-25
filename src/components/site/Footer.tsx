@@ -103,7 +103,6 @@ export function Footer() {
 
           <Column title="Services" links={services} />
           <Column title="Company" links={company} />
-          <Column title="Resources" links={resources} />
         </div>
       </div>
 
@@ -111,8 +110,8 @@ export function Footer() {
         <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-3 px-6 py-5 text-xs text-muted-foreground md:flex-row md:items-center">
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
             <span>© {new Date().getFullYear()} TSMC Marketing</span>
-            <a href="#" className="transition-colors hover:text-foreground">Privacy</a>
-            <a href="#" className="transition-colors hover:text-foreground">Terms</a>
+            <a href="/privacy" className="transition-colors hover:text-foreground">Privacy</a>
+            <a href="/terms" className="transition-colors hover:text-foreground">Terms</a>
           </div>
         </div>
       </div>

@@ -19,7 +19,7 @@ export function Nav() {
       }`}
     >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-        <a href="#top" className="shrink-0 transition-transform duration-300 hover:scale-[1.03]">
+        <a href="/" className="shrink-0 transition-transform duration-300 hover:scale-[1.03]">
           <Logo />
         </a>
         <nav className="hidden items-center gap-8 text-sm text-muted-foreground md:flex">
