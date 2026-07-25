@@ -4,7 +4,7 @@ import { Reveal } from "./Reveal";
 const faqs = [
   {
     q: "How much does this cost?",
-    a: "Engagements start at $2,500/month for focused local SEO and scale with scope. Website builds are project-based, quoted after the audit. You'll see exact pricing before we ever ask for a card.",
+    a: "Consult and will give you a price with value. We are not guessing your pricing and depends on what you need.",
   },
   {
     q: "How long until I see results?",
@@ -12,7 +12,7 @@ const faqs = [
   },
   {
     q: "Am I locked into a long contract?",
-    a: "No. We work month-to-month after an initial 90-day sprint. If we're not earning our fee, you leave and keep everything we built.",
+    a: "No. We work month-to-month after an initial 90 day sprint. If we're not earning our fee, you leave and keep everything we built.",
   },
   {
     q: "Do you guarantee rankings?",
@@ -24,7 +24,7 @@ const faqs = [
   },
   {
     q: "What if I already have a website?",
-    a: "Great — we'll audit it for free. Most local service sites lose leads because they're slow, confusing, or invisible on mobile. We'll show you exactly what's broken and what it'll take to fix.",
+    a: "Great we'll consult it for free. Most local service sites lose leads because they're outdated, confusing, or invisible on mobile. We'll show you exactly what's broken and what it'll take to fix.",
   },
 ];
 

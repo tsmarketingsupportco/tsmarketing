@@ -86,36 +86,19 @@ export function Footer() {
                   className="group inline-flex items-center gap-2.5 text-foreground/80 transition-colors hover:text-foreground"
                 >
                   <Mail className="h-4 w-4 text-muted-foreground transition-colors group-hover:text-primary" />
-                  hello@tsmcmarketing.com
+                  tsmarketingsupport@gmail.com
                 </a>
               </li>
               <li>
                 <a
-                  href="tel:+10000000000"
+                  href="tel:+8170 9065 3941"
                   className="group inline-flex items-center gap-2.5 text-foreground/80 transition-colors hover:text-foreground"
                 >
                   <Phone className="h-4 w-4 text-muted-foreground transition-colors group-hover:text-primary" />
-                  +1 (000) 000-0000
+                  +8170 9065 3941
                 </a>
-              </li>
-              <li className="inline-flex items-center gap-2.5 text-muted-foreground">
-                <MapPin className="h-4 w-4" />
-                Remote · Serving North America
               </li>
             </ul>
-
-            <div className="mt-6 flex items-center gap-2">
-              {socials.map(({ label, href, Icon }) => (
-                <a
-                  key={label}
-                  href={href}
-                  aria-label={label}
-                  className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border/60 text-muted-foreground transition-all hover:-translate-y-0.5 hover:border-primary/50 hover:bg-primary/10 hover:text-foreground"
-                >
-                  <Icon className="h-4 w-4" />
-                </a>
-              ))}
-            </div>
           </div>
 
           <Column title="Services" links={services} />
@@ -130,10 +113,6 @@ export function Footer() {
             <span>© {new Date().getFullYear()} TSMC Marketing</span>
             <a href="#" className="transition-colors hover:text-foreground">Privacy</a>
             <a href="#" className="transition-colors hover:text-foreground">Terms</a>
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_12px_oklch(0.55_0.22_275/0.9)]" />
-            Built for local pros
           </div>
         </div>
       </div>

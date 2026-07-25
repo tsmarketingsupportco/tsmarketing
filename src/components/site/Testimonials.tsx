@@ -3,7 +3,7 @@ import { Reveal } from "./Reveal";
 
 const quotes = [
   {
-    q: "We were spending $4K/month on ads and getting maybe two calls a week. Six months in, we're getting fifteen calls a week from Google — and we cut the ad spend.",
+    q: "We were spending $4K/month on ads and getting maybe two calls a week. Six months in, we're getting fifteen calls a week from Google and we cut the ad spend.",
     a: "Mike R.",
     r: "Owner, Riverside Plumbing",
     tag: "Plumbing",
@@ -54,13 +54,13 @@ export function Testimonials() {
                     {q.tag}
                   </span>
                 </div>
-                <blockquote className="mt-6 flex-1 text-lg leading-relaxed text-foreground">
-                  "{q.q}"
-                </blockquote>
                 <figcaption className="mt-6 text-sm">
                   <div className="font-medium text-foreground">{q.a}</div>
                   <div className="text-muted-foreground">{q.r}</div>
                 </figcaption>
+                <blockquote className="mt-6 flex-1 text-lg leading-relaxed text-foreground">
+                  "{q.q}"
+                </blockquote>
               </figure>
             </Reveal>
           ))}

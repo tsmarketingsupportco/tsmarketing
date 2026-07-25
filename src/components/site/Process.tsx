@@ -2,10 +2,10 @@ import { motion } from "framer-motion";
 import { Reveal } from "./Reveal";
 
 const steps = [
-  { n: "01", t: "Audit", d: "We map your current rankings, site, and funnel. You get a written diagnosis of what's costing you jobs in 5 business days." },
-  { n: "02", t: "Strategy", d: "A 90-day roadmap with the keywords your customers actually search, clear priorities, and the numbers we're accountable to." },
-  { n: "03", t: "Build", d: "We ship content, pages, chatbot flows, and technical fixes with weekly progress you can see and measure." },
-  { n: "04", t: "Grow", d: "Monthly reporting, iteration, and expansion. Compounding results, no surprises, no lock-in." },
+  { n: "01", t: "Consult", d: "We extract your current rankings, site, and funnel. You get a diagnosis of what's costing you." },
+  { n: "02", t: "Plan", d: "We create a clear strategy with goals and priorities." },
+  { n: "03", t: "Build", d: "We build your project, test, deploy. " },
+  { n: "04", t: "Grow", d: "We maintain, optimize, and grow." },
 ];
 
 export function Process() {

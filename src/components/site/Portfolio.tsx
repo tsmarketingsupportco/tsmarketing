@@ -4,16 +4,16 @@ const cases = [
   {
     tag: "Plumbing · Local services",
     title: "From page 4 to the Google Map Pack in 90 days",
-    metric: "+412%",
-    label: "organic leads",
+    metric: "Map Pack",
+    label: "local visibility",
     img: "https://images.pexels.com/photos/5691536/pexels-photo-5691536.jpeg?auto=compress&cs=tinysrgb&w=800",
     blurb: "A two-truck plumbing outfit was invisible on Google. We rebuilt their local SEO and added a 24/7 chatbot. Phones started ringing within six weeks.",
   },
   {
     tag: "Dental · Healthcare",
     title: "New site cut cost-per-patient in half",
-    metric: "−53%",
-    label: "cost per acquisition",
+    metric: "Lower spend",
+    label: "per new patient",
     img: "https://images.pexels.com/photos/8413334/pexels-photo-8413334.jpeg?auto=compress&cs=tinysrgb&w=800",
     blurb: "A dental practice was burning budget on ads with no return. We built a conversion-first site and shifted to organic. New patients went up, ad spend went down.",
   },
@@ -23,7 +23,7 @@ const cases = [
     metric: "$120K",
     label: "chat-attributed revenue",
     img: "https://images.pexels.com/photos/7347538/pexels-photo-7347538.jpeg?auto=compress&cs=tinysrgb&w=800",
-    blurb: "An HVAC company kept losing overnight leads to faster competitors. Our AI chatbot now answers, qualifies, and books — before the office opens.",
+    blurb: "An HVAC company kept losing overnight leads to faster competitors. Our AI chatbot now answers, qualifies, and books before the office opens.",
   },
 ];
 

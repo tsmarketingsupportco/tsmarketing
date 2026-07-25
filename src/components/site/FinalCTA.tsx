@@ -22,10 +22,10 @@ export function FinalCTA() {
             />
             <div className="relative">
               <h2 className="mx-auto max-w-2xl text-balance text-4xl font-semibold text-white md:text-5xl">
-                See exactly what's costing you jobs.
+                We'll send you a Free website demo.
               </h2>
               <p className="mx-auto mt-5 max-w-xl text-white/85">
-                Free 30-minute audit. We'll show you the 3 things killing your rankings and the exact steps to fix them. Delivered by a real strategist within 24 hours — not a bot, not a sales rep.
+                We'll show you the project demo and we'll see the results. 
               </p>
               <form
                 onSubmit={(e) => {
@@ -59,11 +59,10 @@ export function FinalCTA() {
                       Sent
                     </>
                   ) : (
-                    "Get my audit"
+                    "Get my Free Demo"
                   )}
                 </button>
               </form>
-              <p className="mt-4 text-xs text-white/70">No spam. No sales calls. Just the audit.</p>
             </div>
           </div>
         </Reveal>
