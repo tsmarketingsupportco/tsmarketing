@@ -13,7 +13,7 @@ import { FinalCTA } from "@/components/site/FinalCTA";
 import { Footer } from "@/components/site/Footer";
 import { AmbientBackground } from "@/components/site/AmbientBackground";
 
-const TITLE = "TSMC Marketing — SEO, Websites & Chatbots that Convert";
+const TITLE = "TS Marketing SEO, Websites, Chatbots that Convert";
 const DESCRIPTION =
   "TSMC Marketing builds the SEO, website, and AI chatbot stack that turns Google searches into paying customers. Free audit in 24 hours.";
 
@@ -35,7 +35,7 @@ export const Route = createFileRoute("/")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Organization",
-          name: "TSMC Marketing",
+          name: "TS Marketing",
           description: DESCRIPTION,
           url: "/",
           sameAs: [],
