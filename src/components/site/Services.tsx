@@ -1,6 +1,7 @@
 import { Search, Globe, MessageSquare, Sparkles, CheckCircle2 } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { useState } from "react";
+import { ImageZoom } from "./ImageZoom";
 
 const services = [
   {
@@ -78,12 +79,12 @@ export function Services() {
                   {s.visualType === "seo" && (
                     <div className="mt-6 overflow-hidden rounded-xl border border-white/10 bg-surface/90 shadow-inner group/img">
                       <div className="relative aspect-[16/10] w-full overflow-hidden">
-                        <img
+                        <ImageZoom
                           src="https://46ykd16d8k.ufs.sh/f/GTSgDGA07FisSLtmYoriVcbenmrqyu1MZkQW2T9zoshDRCxP"
                           alt="SEO Demo"
-                          className="h-full w-full object-cover transition-transform duration-500 group-hover/img:scale-105"
+                          className="h-full w-full object-cover"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent pointer-events-none" />
                         <div className="absolute bottom-2 left-3 right-3 flex items-center justify-between text-xs">
                           <span className="rounded-full bg-emerald-500/20 px-2 py-0.5 text-[10px] font-semibold text-emerald-400 border border-emerald-500/30">
                             Rank #1 Map Pack
@@ -97,12 +98,12 @@ export function Services() {
                   {s.visualType === "web" && (
                     <div className="mt-6 overflow-hidden rounded-xl border border-white/10 bg-surface/90 shadow-inner group/img">
                       <div className="relative aspect-[16/10] w-full overflow-hidden">
-                        <img
+                        <ImageZoom
                           src="https://46ykd16d8k.ufs.sh/f/GTSgDGA07FisRNJRTYFyXqM6huZeGJ9jf3KFxlBbY2NdCHAD"
                           alt="Website Service Demo"
-                          className="h-full w-full object-cover transition-transform duration-500 group-hover/img:scale-105"
+                          className="h-full w-full object-cover"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent pointer-events-none" />
                       </div>
                     </div>
                   )}
@@ -110,12 +111,12 @@ export function Services() {
                   {s.visualType === "bot" && (
                     <div className="mt-6 overflow-hidden rounded-xl border border-primary/30 bg-surface/90 shadow-inner group/img">
                       <div className="relative aspect-[16/10] w-full overflow-hidden">
-                        <img
+                        <ImageZoom
                           src="https://46ykd16d8k.ufs.sh/f/GTSgDGA07Fisv8lPbhVOYbLXyFMdDIha2uolgpVP15jrBwxs"
                           alt="Chatbot Demo"
-                          className="h-full w-full object-cover transition-transform duration-500 group-hover/img:scale-105"
+                          className="h-full w-full object-cover"
                         />
-                        <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent pointer-events-none" />
                         <div className="absolute top-2 left-2 flex gap-1">
                           {samplePrompts.map((p, idx) => (
                             <button
