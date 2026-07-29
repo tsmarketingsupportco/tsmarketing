@@ -1,6 +1,5 @@
 import { motion, useReducedMotion, useMotionValue, useSpring, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { ImageZoom } from "./ImageZoom";
 
 const line1 = ["Rank", "higher."];
 const line2 = ["Convert", "more."];
@@ -158,12 +157,12 @@ export function Hero() {
 
               {/* Main Showcase Banner Image */}
               <div className="relative mt-4 overflow-hidden rounded-xl border border-white/10 aspect-[16/9] w-full group/heroimg">
-                <ImageZoom
+                <img
                   src="https://46ykd16d8k.ufs.sh/f/GTSgDGA07FisRNJRTYFyXqM6huZeGJ9jf3KFxlBbY2NdCHAD"
                   alt="Website Service Demo"
-                  className="h-full w-full object-cover"
+                  className="h-full w-full object-cover transition-transform duration-700 group-hover/heroimg:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
 
 
               </div>
