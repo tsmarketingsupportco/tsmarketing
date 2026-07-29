@@ -109,7 +109,7 @@ export function Footer() {
       <div className="relative border-t border-border/60">
         <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-3 px-6 py-5 text-xs text-muted-foreground md:flex-row md:items-center">
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-            <span>© {new Date().getFullYear()} TSMC Marketing</span>
+            <span>© {new Date().getFullYear()} TS Marketing</span>
             <a href="/privacy" className="transition-colors hover:text-foreground">Privacy</a>
             <a href="/terms" className="transition-colors hover:text-foreground">Terms</a>
           </div>

@@ -31,29 +31,6 @@ export function Testimonials() {
           {quotes.map((q, i) => (
             <Reveal key={q.a} delay={i * 0.08}>
               <figure className="card-surface group flex h-full flex-col rounded-2xl p-8 hover:-translate-y-1">
-                <div className="flex items-center justify-between">
-                  <motion.svg
-                    width="28"
-                    height="28"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    className="text-primary-glow animate-float"
-                    aria-hidden
-                    initial={{ rotate: -12, opacity: 0 }}
-                    whileInView={{ rotate: 0, opacity: 1 }}
-                    viewport={{ once: true, margin: "-80px" }}
-                    transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-                  >
-                    <path
-                      d="M7 7h4v4H7v3a4 4 0 004-4V7H7zm10 0h4v4h-4v3a4 4 0 004-4V7h-4z"
-                      fill="currentColor"
-                      fillOpacity="0.9"
-                    />
-                  </motion.svg>
-                  <span className="rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-medium text-primary-glow">
-                    {q.tag}
-                  </span>
-                </div>
                 <figcaption className="mt-6 text-sm">
                   <div className="font-medium text-foreground">{q.a}</div>
                   <div className="text-muted-foreground">{q.r}</div>

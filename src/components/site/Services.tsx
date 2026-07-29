@@ -103,12 +103,6 @@ export function Services() {
                           className="h-full w-full object-cover transition-transform duration-500 group-hover/img:scale-105"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent" />
-                        <div className="absolute bottom-2 left-3 right-3 flex items-center justify-between text-xs">
-                          <span className="rounded-full bg-primary/20 px-2 py-0.5 text-[10px] font-semibold text-primary-glow border border-primary/30">
-                            Subsecond Mobile Speed
-                          </span>
-                          <span className="text-[11px] font-mono text-emerald-400">99/100</span>
-                        </div>
                       </div>
                     </div>
                   )}

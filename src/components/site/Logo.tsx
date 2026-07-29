@@ -7,7 +7,7 @@ export function Logo({ className = "" }: { className?: string }) {
         className="h-8 w-8 rounded-lg object-contain shadow-[0_0_12px_rgba(168,85,247,0.4)]"
       />
       <span className="font-display text-[17px] font-semibold tracking-tight text-foreground">
-        TSMC<span className="text-muted-foreground font-normal"> Marketing</span>
+        TS<span className="text-muted-foreground font-normal"> Marketing</span>
       </span>
     </div>
   );

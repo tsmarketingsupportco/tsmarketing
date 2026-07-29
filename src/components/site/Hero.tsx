@@ -154,19 +154,6 @@ export function Hero() {
             <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-primary/30 via-primary-glow/40 to-primary/30 opacity-70 blur-xl animate-pulse-glow" />
 
             <div className="relative overflow-hidden rounded-2xl border border-white/15 bg-surface/80 p-4 shadow-2xl backdrop-blur-xl md:p-6">
-              {/* Window header */}
-              <div className="flex items-center justify-between border-b border-white/10 pb-4">
-                <div className="flex items-center gap-2">
-                  <span className="h-3 w-3 rounded-full bg-red-500/80" />
-                  <span className="h-3 w-3 rounded-full bg-yellow-500/80" />
-                  <span className="h-3 w-3 rounded-full bg-green-500/80" />
-                  <span className="ml-2 text-xs font-mono text-muted-foreground/80">tsmarketing-dashboard.live</span>
-                </div>
-                <div className="flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-xs font-medium text-emerald-400">
-                  <span className="h-2 w-2 rounded-full bg-emerald-400 animate-ping" />
-                  System Live & Converting
-                </div>
-              </div>
 
               {/* Main Showcase Banner Image */}
               <div className="relative mt-4 overflow-hidden rounded-xl border border-white/10 aspect-[16/9] w-full group/heroimg">
@@ -177,44 +164,11 @@ export function Hero() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
 
-                {/* Overlaid Floating Status Chips */}
-                <div className="absolute bottom-4 left-4 right-4 flex flex-wrap items-center justify-between gap-3">
-                  <div className="flex items-center gap-2 rounded-xl border border-white/20 bg-background/85 px-3 py-2 text-xs backdrop-blur-md shadow-lg">
-                    <img
-                      src="https://46ykd16d8k.ufs.sh/f/GTSgDGA07FisSLtmYoriVcbenmrqyu1MZkQW2T9zoshDRCxP"
-                      alt="SEO Thumbnail"
-                      className="h-6 w-6 rounded object-cover border border-white/20"
-                    />
-                    <div>
-                      <div className="font-semibold text-foreground">SEO Optimization</div>
-                      <div className="text-[10px] text-emerald-400 font-mono">Rank #1 Google Pack</div>
-                    </div>
-                  </div>
 
-                  <div className="flex items-center gap-2 rounded-xl border border-primary-glow/40 bg-background/85 px-3 py-2 text-xs backdrop-blur-md shadow-lg">
-                    <img
-                      src="https://46ykd16d8k.ufs.sh/f/GTSgDGA07Fisv8lPbhVOYbLXyFMdDIha2uolgpVP15jrBwxs"
-                      alt="Chatbot Thumbnail"
-                      className="h-6 w-6 rounded object-cover border border-white/20"
-                    />
-                    <div>
-                      <div className="font-semibold text-foreground">AI Chatbot Stack</div>
-                      <div className="text-[10px] text-primary-glow font-mono">24/7 Automated Leads</div>
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
 
-            {/* Floating visual badge */}
-            <div className="absolute -bottom-4 -right-4 hidden sm:flex items-center gap-2.5 rounded-full border border-primary-glow/40 bg-surface/95 px-4 py-2 text-xs font-medium shadow-xl backdrop-blur-md animate-float">
-              <img
-                src="https://46ykd16d8k.ufs.sh/f/GTSgDGA07Fis7Nzh0Vi9Lm8sAawMkrK5bYyBnfclOhpCiZTS"
-                alt="TS Logo Icon"
-                className="h-5 w-5 rounded object-contain"
-              />
-              <span className="text-foreground">TS Marketing Engine Active</span>
-            </div>
+
           </motion.div>
 
 
