@@ -36,13 +36,22 @@ export function Problem() {
         <div className="mt-16 grid gap-6 md:grid-cols-3">
           {pains.map((p, i) => (
             <Reveal key={p.k} delay={i * 0.08}>
-              <div className="card-surface group h-full rounded-2xl p-8 hover:-translate-y-1">
-                <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/15 text-primary-glow transition-transform duration-300 group-hover:scale-110">
-                    <p.Icon className="h-5 w-5" />
+              <div className="card-surface group relative h-full overflow-hidden rounded-2xl p-8 hover:-translate-y-1 hover:border-red-500/30 transition-all duration-300">
+                {/* Subtle visual red warning aura on hover */}
+                <div className="pointer-events-none absolute -right-12 -top-12 h-32 w-32 rounded-full bg-red-500/10 opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100" />
+                
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-red-500/10 text-red-400 border border-red-500/20 transition-transform duration-300 group-hover:scale-110">
+                      <p.Icon className="h-5 w-5" />
+                    </div>
+                    <div className="font-display text-xs font-semibold uppercase tracking-wider text-red-400/80">Pain {p.k}</div>
                   </div>
-                  <div className="font-display text-sm font-medium text-primary-glow">{p.k}</div>
+                  <span className="rounded-full bg-red-500/10 px-2 py-0.5 text-[10px] font-medium text-red-400 border border-red-500/20">
+                    Revenue Leak
+                  </span>
                 </div>
+                
                 <h3 className="mt-5 text-xl font-semibold">{p.t}</h3>
                 <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">{p.d}</p>
               </div>
@@ -53,3 +62,4 @@ export function Problem() {
     </section>
   );
 }
+

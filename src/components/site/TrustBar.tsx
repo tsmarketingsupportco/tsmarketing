@@ -17,12 +17,13 @@ export function TrustBar() {
         >
           <div className="animate-marquee pause-on-hover flex w-max items-center gap-16 whitespace-nowrap">
             {loop.map((b, i) => (
-              <span
+              <div
                 key={b + i}
-                className="font-display text-sm font-semibold tracking-widest text-muted-foreground/70 transition-colors hover:text-foreground"
+                className="group/item flex items-center gap-2.5 rounded-full border border-white/5 bg-elevated/40 px-4 py-2 text-xs font-semibold tracking-widest text-muted-foreground/80 transition-all duration-300 hover:border-primary-glow/40 hover:bg-elevated hover:text-foreground hover:shadow-[0_0_15px_rgba(168,85,247,0.2)]"
               >
-                {b}
-              </span>
+                <span className="h-2 w-2 rounded-full bg-primary-glow/60 transition-transform duration-300 group-hover/item:scale-125 group-hover/item:bg-primary-glow" />
+                <span className="font-display">{b}</span>
+              </div>
             ))}
           </div>
         </div>
@@ -30,3 +31,4 @@ export function TrustBar() {
     </section>
   );
 }
+

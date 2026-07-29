@@ -50,16 +50,22 @@ export function Portfolio() {
                     src={c.img}
                     alt={c.title}
                     loading="lazy"
-                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
+                  
+                  {/* Visual Top Chip */}
+                  <div className="absolute top-4 right-4 rounded-full border border-white/20 bg-background/70 px-3 py-1 text-[11px] font-semibold text-primary-glow backdrop-blur-md">
+                    Verified Result
+                  </div>
+
                   <div className="absolute bottom-6 left-6 transition-transform duration-500 group-hover:-translate-y-1">
-                    <div className="font-display text-4xl font-semibold text-white drop-shadow-lg">{c.metric}</div>
-                    <div className="mt-1 text-sm text-white/90 drop-shadow">{c.label}</div>
+                    <div className="font-display text-4xl font-extrabold text-white drop-shadow-xl tracking-tight">{c.metric}</div>
+                    <div className="mt-1 text-sm font-medium text-white/90 drop-shadow">{c.label}</div>
                   </div>
                 </div>
                 <div className="flex-1 p-6">
-                  <div className="text-xs uppercase tracking-widest text-primary-glow">{c.tag}</div>
+                  <div className="text-xs uppercase tracking-widest text-primary-glow font-medium">{c.tag}</div>
                   <h3 className="mt-2 text-lg font-semibold leading-snug">
                     <span className="story-link">{c.title}</span>
                   </h3>
@@ -73,3 +79,4 @@ export function Portfolio() {
     </section>
   );
 }
+

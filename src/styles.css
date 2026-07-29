@@ -219,6 +219,40 @@
 
 .pause-on-hover:hover { animation-play-state: paused; }
 
+/* Enhanced visual utilities & glow effects */
+.glow-card {
+  position: relative;
+}
+.glow-card::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, oklch(0.68 0.20 285 / 0.4), oklch(0.55 0.22 275 / 0.1), transparent 60%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.glass-panel {
+  background: oklch(0.19 0.05 275 / 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid oklch(1 0 0 / 0.1);
+  box-shadow: 0 20px 50px -10px oklch(0 0 0 / 0.5);
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.06); }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 4s ease-in-out infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.001ms !important;
@@ -227,3 +261,4 @@
     scroll-behavior: auto !important;
   }
 }
+

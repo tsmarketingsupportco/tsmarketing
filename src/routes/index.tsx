@@ -12,6 +12,8 @@ import { FAQ } from "@/components/site/FAQ";
 import { FinalCTA } from "@/components/site/FinalCTA";
 import { Footer } from "@/components/site/Footer";
 import { AmbientBackground } from "@/components/site/AmbientBackground";
+import { LoadingScreen } from "@/components/site/LoadingScreen";
+import { ScrollProgress } from "@/components/site/ScrollProgress";
 
 const TITLE = "TS Marketing SEO, Websites, Chatbots that Convert";
 const DESCRIPTION =
@@ -49,6 +51,8 @@ export const Route = createFileRoute("/")({
 function Home() {
   return (
     <div className="relative min-h-screen bg-background text-foreground">
+      <LoadingScreen />
+      <ScrollProgress />
       <AmbientBackground />
       <Nav />
       <main>
@@ -67,3 +71,4 @@ function Home() {
     </div>
   );
 }
+
