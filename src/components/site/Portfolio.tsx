@@ -2,26 +2,26 @@ import { Reveal } from "./Reveal";
 
 const cases = [
   {
-    tag: "Plumbing · Local services",
+    tag: "Local services",
     title: "From page 4 to the Google Map Pack in 90 days",
     metric: "Map Pack",
     label: "local visibility",
     img: "https://images.pexels.com/photos/5691536/pexels-photo-5691536.jpeg?auto=compress&cs=tinysrgb&w=800",
-    blurb: "A two-truck plumbing outfit was invisible on Google. We rebuilt their local SEO and added a 24/7 chatbot. Phones started ringing within six weeks.",
+    blurb: "A two truck plumbing outfit was invisible on Google. We rebuilt their local SEO and added a 24/7 chatbot. Phones started ringing within six weeks.",
   },
   {
-    tag: "Dental · Healthcare",
+    tag: "Healthcare",
     title: "New site cut cost-per-patient in half",
     metric: "Lower spend",
     label: "per new patient",
     img: "https://images.pexels.com/photos/8413334/pexels-photo-8413334.jpeg?auto=compress&cs=tinysrgb&w=800",
-    blurb: "A dental practice was burning budget on ads with no return. We built a conversion-first site and shifted to organic. New patients went up, ad spend went down.",
+    blurb: "A dental practice was burning budget on ads with no return. We built a conversion first site and shifted to organic. New patients went up, ad spend went down.",
   },
   {
-    tag: "HVAC · Home services",
+    tag: "HVAC Home services",
     title: "AI chat that closes at 3am",
-    metric: "$120K",
-    label: "chat-attributed revenue",
+    metric: "More Sale",
+    label: "chat attributed revenue",
     img: "https://images.pexels.com/photos/7347538/pexels-photo-7347538.jpeg?auto=compress&cs=tinysrgb&w=800",
     blurb: "An HVAC company kept losing overnight leads to faster competitors. Our AI chatbot now answers, qualifies, and books before the office opens.",
   },
@@ -53,11 +53,8 @@ export function Portfolio() {
                     className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
-                  
-                  {/* Visual Top Chip */}
-                  <div className="absolute top-4 right-4 rounded-full border border-white/20 bg-background/70 px-3 py-1 text-[11px] font-semibold text-primary-glow backdrop-blur-md">
-                    Verified Result
-                  </div>
+
+
 
                   <div className="absolute bottom-6 left-6 transition-transform duration-500 group-hover:-translate-y-1">
                     <div className="font-display text-4xl font-extrabold text-white drop-shadow-xl tracking-tight">{c.metric}</div>

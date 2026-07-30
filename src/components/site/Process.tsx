@@ -46,7 +46,7 @@ export function Process() {
                       <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-primary-glow/40 bg-primary/10 font-display text-sm font-bold text-primary-glow shadow-[0_0_20px_rgba(168,85,247,0.3)] transition-transform duration-300 group-hover:scale-110">
                         {s.n}
                       </div>
-                      <span className="h-2 w-2 rounded-full bg-primary-glow/60 transition-transform duration-300 group-hover:scale-150 group-hover:bg-primary-glow" />
+
                     </div>
                     <h3 className="mt-5 text-lg font-semibold">{s.t}</h3>
                     <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.d}</p>

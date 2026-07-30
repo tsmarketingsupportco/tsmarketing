@@ -47,9 +47,7 @@ export function Problem() {
                     </div>
                     <div className="font-display text-xs font-semibold uppercase tracking-wider text-red-400/80">Pain {p.k}</div>
                   </div>
-                  <span className="rounded-full bg-red-500/10 px-2 py-0.5 text-[10px] font-medium text-red-400 border border-red-500/20">
-                    Revenue Leak
-                  </span>
+
                 </div>
                 
                 <h3 className="mt-5 text-xl font-semibold">{p.t}</h3>

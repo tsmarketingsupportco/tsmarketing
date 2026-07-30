@@ -65,9 +65,7 @@ export function Services() {
                     <div className="relative flex h-12 w-12 items-center justify-center rounded-xl bg-primary/15 text-primary-glow transition-transform duration-300 group-hover:scale-110">
                       <s.Icon className="h-6 w-6" />
                     </div>
-                    <span className="rounded-full border border-primary/20 bg-primary/10 px-2.5 py-0.5 text-[11px] font-semibold text-primary-glow">
-                      Visual Preview
-                    </span>
+
                   </div>
 
                   <h3 className="relative mt-5 font-display text-2xl font-semibold">{s.title}</h3>
