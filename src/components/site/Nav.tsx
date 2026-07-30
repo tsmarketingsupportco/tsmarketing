@@ -1,14 +1,26 @@
 import { useEffect, useState } from "react";
 import { Logo } from "./Logo";
+import { useLocale, useT } from "@/lib/useLocale";
 
-export function Nav() {
+interface NavProps {
+  /** Override the language switcher link. Defaults to toggle between /en and /ja */
+  langSwitchHref?: string;
+}
+
+export function Nav({ langSwitchHref }: NavProps) {
   const [scrolled, setScrolled] = useState(false);
+  const locale = useLocale();
+  const t = useT();
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const switchHref = langSwitchHref ?? (locale === "en" ? "/ja" : "/");
+  const switchLabel = locale === "en" ? "日本語" : "English";
 
   return (
     <header
@@ -24,26 +36,35 @@ export function Nav() {
         </a>
         <nav className="hidden items-center gap-8 text-sm text-muted-foreground md:flex">
           {[
-            { h: "#services", l: "Services" },
-            { h: "#process", l: "Process" },
-            { h: "#work", l: "Work" },
-            { h: "#faq", l: "FAQ" },
+            { h: "#services", l: t.nav.services },
+            { h: "#process", l: t.nav.process },
+            { h: "#work", l: t.nav.work },
+            { h: "#faq", l: t.nav.faq },
           ].map((i) => (
             <a key={i.h} href={i.h} className="story-link transition-colors hover:text-foreground">
               {i.l}
             </a>
           ))}
         </nav>
-        <a
-          href="#audit"
-          className="group relative inline-flex h-9 items-center overflow-hidden rounded-full bg-primary px-4 text-sm font-medium text-primary-foreground shadow-[var(--shadow-elegant)] transition-transform hover:scale-[1.04]"
-        >
-          <span
-            aria-hidden
-            className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-700 group-hover:translate-x-full"
-          />
-          <span className="relative"> Get My Demo</span>
-        </a>
+        <div className="flex items-center gap-3">
+          {/* Language Switcher */}
+          <a
+            href={switchHref}
+            className="hidden md:inline-flex h-9 items-center rounded-full border border-border/60 bg-surface/50 px-3 text-xs font-semibold text-muted-foreground transition-all hover:border-primary/40 hover:text-primary-glow"
+          >
+            {switchLabel}
+          </a>
+          <a
+            href="#audit"
+            className="group relative inline-flex h-9 items-center overflow-hidden rounded-full bg-primary px-4 text-sm font-medium text-primary-foreground shadow-[var(--shadow-elegant)] transition-transform hover:scale-[1.04]"
+          >
+            <span
+              aria-hidden
+              className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-700 group-hover:translate-x-full"
+            />
+            <span className="relative">{t.nav.cta}</span>
+          </a>
+        </div>
       </div>
     </header>
   );

@@ -11,6 +11,8 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as PrivacyRouteImport } from './routes/privacy'
+import { Route as JpRouteImport } from './routes/jp'
+import { Route as JaRouteImport } from './routes/ja'
 import { Route as IndexRouteImport } from './routes/index'
 
 const TermsRoute = TermsRouteImport.update({
@@ -23,6 +25,16 @@ const PrivacyRoute = PrivacyRouteImport.update({
   path: '/privacy',
   getParentRoute: () => rootRouteImport,
 } as any)
+const JpRoute = JpRouteImport.update({
+  id: '/jp',
+  path: '/jp',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const JaRoute = JaRouteImport.update({
+  id: '/ja',
+  path: '/ja',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -31,30 +43,38 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/ja': typeof JaRoute
+  '/jp': typeof JpRoute
   '/privacy': typeof PrivacyRoute
   '/terms': typeof TermsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/ja': typeof JaRoute
+  '/jp': typeof JpRoute
   '/privacy': typeof PrivacyRoute
   '/terms': typeof TermsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/ja': typeof JaRoute
+  '/jp': typeof JpRoute
   '/privacy': typeof PrivacyRoute
   '/terms': typeof TermsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/privacy' | '/terms'
+  fullPaths: '/' | '/ja' | '/jp' | '/privacy' | '/terms'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/privacy' | '/terms'
-  id: '__root__' | '/' | '/privacy' | '/terms'
+  to: '/' | '/ja' | '/jp' | '/privacy' | '/terms'
+  id: '__root__' | '/' | '/ja' | '/jp' | '/privacy' | '/terms'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  JaRoute: typeof JaRoute
+  JpRoute: typeof JpRoute
   PrivacyRoute: typeof PrivacyRoute
   TermsRoute: typeof TermsRoute
 }
@@ -75,6 +95,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PrivacyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/jp': {
+      id: '/jp'
+      path: '/jp'
+      fullPath: '/jp'
+      preLoaderRoute: typeof JpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ja': {
+      id: '/ja'
+      path: '/ja'
+      fullPath: '/ja'
+      preLoaderRoute: typeof JaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -87,6 +121,8 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  JaRoute: JaRoute,
+  JpRoute: JpRoute,
   PrivacyRoute: PrivacyRoute,
   TermsRoute: TermsRoute,
 }

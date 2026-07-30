@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { LocaleContext } from "@/lib/useLocale";
 import { Nav } from "@/components/site/Nav";
 import { Hero } from "@/components/site/Hero";
 import { TrustBar } from "@/components/site/TrustBar";
@@ -30,7 +31,11 @@ export const Route = createFileRoute("/")({
       { name: "twitter:title", content: TITLE },
       { name: "twitter:description", content: DESCRIPTION },
     ],
-    links: [{ rel: "canonical", href: "/" }],
+    links: [
+      { rel: "canonical", href: "/" },
+      { rel: "alternate", hrefLang: "en", href: "/" },
+      { rel: "alternate", hrefLang: "ja", href: "/ja" },
+    ],
     scripts: [
       {
         type: "application/ld+json",
@@ -50,25 +55,26 @@ export const Route = createFileRoute("/")({
 
 function Home() {
   return (
-    <div className="relative min-h-screen bg-background text-foreground">
-      <LoadingScreen />
-      <ScrollProgress />
-      <AmbientBackground />
-      <Nav />
-      <main>
-        <Hero />
-        <div className="tint-trust"><TrustBar /></div>
-        <div className="tint-problem"><Problem /></div>
-        <div className="tint-services"><Services /></div>
-        <div className="tint-benefits"><Benefits /></div>
-        <div className="tint-process"><Process /></div>
-        <div className="tint-work"><Portfolio /></div>
-        <div className="tint-testimonials"><Testimonials /></div>
-        <div className="tint-faq"><FAQ /></div>
-        <FinalCTA />
-      </main>
-      <Footer />
-    </div>
+    <LocaleContext.Provider value="en">
+      <div className="relative min-h-screen bg-background text-foreground">
+        <LoadingScreen />
+        <ScrollProgress />
+        <AmbientBackground />
+        <Nav />
+        <main>
+          <Hero />
+          <div className="tint-trust"><TrustBar /></div>
+          <div className="tint-problem"><Problem /></div>
+          <div className="tint-services"><Services /></div>
+          <div className="tint-benefits"><Benefits /></div>
+          <div className="tint-process"><Process /></div>
+          <div className="tint-work"><Portfolio /></div>
+          <div className="tint-testimonials"><Testimonials /></div>
+          <div className="tint-faq"><FAQ /></div>
+          <FinalCTA />
+        </main>
+        <Footer />
+      </div>
+    </LocaleContext.Provider>
   );
 }
-

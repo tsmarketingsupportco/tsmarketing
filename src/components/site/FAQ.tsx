@@ -1,45 +1,21 @@
 import * as Accordion from "@radix-ui/react-accordion";
 import { Reveal } from "./Reveal";
-
-const faqs = [
-  {
-    q: "How much does this cost?",
-    a: "Consult and will give you a price with value. We are not guessing your pricing and depends on what you need.",
-  },
-  {
-    q: "How long until I see results?",
-    a: "Chatbots and website changes ship in weeks. Local SEO compounds you'll see early wins in 60–90 days and material traffic growth by month 6. Anyone promising overnight rankings is lying.",
-  },
-  {
-    q: "Am I locked into a long contract?",
-    a: "No. We work month-to-month after an initial 90 day sprint. If we're not earning our fee, you leave and keep everything we built.",
-  },
-  {
-    q: "Do you guarantee rankings?",
-    a: "Nobody honest does. We guarantee the work, the process, and full transparency on what's moving the needle. Rankings follow.",
-  },
-  {
-    q: "Who owns the website and content?",
-    a: "You do. Fully. Code, copy, chatbot flows, analytics all in your accounts, from day one. No hostage situations.",
-  },
-  {
-    q: "What if I already have a website?",
-    a: "Great we'll consult it for free. Most local service sites lose leads because they're outdated, confusing, or invisible on mobile. We'll show you exactly what's broken and what it'll take to fix.",
-  },
-];
+import { useT } from "@/lib/useLocale";
 
 export function FAQ() {
+  const t = useT();
+
   return (
     <section id="faq" className="py-24 md:py-32">
       <div className="mx-auto max-w-3xl px-6">
         <Reveal className="text-center">
-          <p className="text-xs uppercase tracking-[0.2em] text-primary-glow">FAQ</p>
-          <h2 className="mt-4 text-4xl font-semibold md:text-5xl">Still weighing it up?</h2>
+          <p className="text-xs uppercase tracking-[0.2em] text-primary-glow">{t.faq.label}</p>
+          <h2 className="mt-4 text-4xl font-semibold md:text-5xl">{t.faq.heading}</h2>
         </Reveal>
 
         <Reveal delay={0.1} className="mt-14">
           <Accordion.Root type="single" collapsible className="divide-y divide-border/60 border-y border-border/60">
-            {faqs.map((f) => (
+            {t.faq.items.map((f) => (
               <Accordion.Item key={f.q} value={f.q} className="group">
                 <Accordion.Header>
                   <Accordion.Trigger className="flex w-full items-center justify-between gap-6 py-6 text-left text-lg font-medium transition-colors hover:text-primary-glow">

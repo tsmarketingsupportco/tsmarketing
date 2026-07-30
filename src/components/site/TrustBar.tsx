@@ -1,15 +1,17 @@
 import { Reveal } from "./Reveal";
+import { useT } from "@/lib/useLocale";
 
 const brands = ["TSMC", "APEX HVAC", "BRIGHTSMILE DENTAL", "MERIDIAN LAW", "FORGE ELECTRIC", "KESTREL ROOFING"];
 
 export function TrustBar() {
+  const t = useT();
   const loop = [...brands, ...brands];
   return (
     <section aria-label="Trusted by" className="border-y border-border/50 py-10">
       <div className="mx-auto max-w-6xl px-6">
         <Reveal>
           <p className="text-center text-xs uppercase tracking-[0.2em] text-muted-foreground">
-            Trusted by businesses
+            {t.trustBar.label}
           </p>
         </Reveal>
         <div
@@ -31,4 +33,3 @@ export function TrustBar() {
     </section>
   );
 }
-

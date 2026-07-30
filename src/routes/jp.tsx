@@ -1,0 +1,80 @@
+import { createFileRoute } from "@tanstack/react-router";
+import { LocaleContext } from "@/lib/useLocale";
+import { Nav } from "@/components/site/Nav";
+import { Hero } from "@/components/site/Hero";
+import { TrustBar } from "@/components/site/TrustBar";
+import { Problem } from "@/components/site/Problem";
+import { Services } from "@/components/site/Services";
+import { Benefits } from "@/components/site/Benefits";
+import { Process } from "@/components/site/Process";
+import { Portfolio } from "@/components/site/Portfolio";
+import { Testimonials } from "@/components/site/Testimonials";
+import { FAQ } from "@/components/site/FAQ";
+import { FinalCTA } from "@/components/site/FinalCTA";
+import { Footer } from "@/components/site/Footer";
+import { AmbientBackground } from "@/components/site/AmbientBackground";
+import { LoadingScreen } from "@/components/site/LoadingScreen";
+import { ScrollProgress } from "@/components/site/ScrollProgress";
+
+const TITLE = "TS Marketing｜SEO・ウェブサイト・AIチャットボットで集客を最大化";
+const DESCRIPTION =
+  "TS Marketingは、Googleの検索結果から売上につなげるSEO・コンバージョン特化ウェブサイト・AIチャットボットを提供します。24時間以内に無料診断をお届けします。";
+
+export const Route = createFileRoute("/jp")({
+  head: () => ({
+    meta: [
+      { title: TITLE },
+      { name: "description", content: DESCRIPTION },
+      { property: "og:title", content: TITLE },
+      { property: "og:description", content: DESCRIPTION },
+      { property: "og:url", content: "/jp" },
+      { name: "twitter:title", content: TITLE },
+      { name: "twitter:description", content: DESCRIPTION },
+    ],
+    links: [
+      { rel: "canonical", href: "/jp" },
+      { rel: "alternate", hrefLang: "ja", href: "/jp" },
+      { rel: "alternate", hrefLang: "en", href: "/" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: "TS Marketing",
+          description: DESCRIPTION,
+          url: "/jp",
+          sameAs: [],
+        }),
+      },
+    ],
+  }),
+  component: HomeJa,
+});
+
+function HomeJa() {
+  return (
+    <LocaleContext.Provider value="ja">
+      <div className="relative min-h-screen bg-background text-foreground" lang="ja">
+        <LoadingScreen />
+        <ScrollProgress />
+        <AmbientBackground />
+        <Nav />
+        <main>
+          <Hero />
+          <div className="tint-trust"><TrustBar /></div>
+          <div className="tint-problem"><Problem /></div>
+          <div className="tint-services"><Services /></div>
+          <div className="tint-benefits"><Benefits /></div>
+          <div className="tint-process"><Process /></div>
+          <div className="tint-work"><Portfolio /></div>
+          <div className="tint-testimonials"><Testimonials /></div>
+          <div className="tint-faq"><FAQ /></div>
+          <FinalCTA />
+        </main>
+        <Footer />
+      </div>
+    </LocaleContext.Provider>
+  );
+}

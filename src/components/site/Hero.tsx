@@ -1,18 +1,11 @@
 import { motion, useReducedMotion, useMotionValue, useSpring, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-
-const line1 = ["Rank", "higher."];
-const line2 = ["Convert", "more."];
-
-const quickStats = [
-  { v: "Brand Image", l: "More clients" },
-  { v: "Increase Sales", l: "Lower cost" },
-  { v: "24/7", l: "No more missed calls" },
-];
+import { useT } from "@/lib/useLocale";
 
 export function Hero() {
   const reduce = useReducedMotion();
   const sectionRef = useRef<HTMLElement>(null);
+  const t = useT();
 
   const mx = useMotionValue(50);
   const my = useMotionValue(20);
@@ -45,7 +38,7 @@ export function Hero() {
       onMouseMove={onMove}
       className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28"
     >
-      {/* Mesh gradient — overlapping radials for richer depth */}
+      {/* Mesh gradient */}
       <motion.div
         aria-hidden
         style={{ y: blobY }}
@@ -84,22 +77,22 @@ export function Hero() {
         <div className="mx-auto max-w-3xl text-center">
           <h1 className="mt-6 text-balance text-5xl font-semibold leading-[1.05] tracking-tight md:text-7xl">
             <span className="block">
-              {line1.map((w, i) => (
+              {t.hero.line1.map((w, i) => (
                 <motion.span key={w + i} className="inline-block" {...wordAnim(i)}>
                   {w}
-                  {i < line1.length - 1 && "\u00A0"}
+                  {i < t.hero.line1.length - 1 && "\u00A0"}
                 </motion.span>
               ))}
             </span>
             <span className="block">
-              {line2.map((w, i) => (
+              {t.hero.line2.map((w, i) => (
                 <motion.span
                   key={w + i}
                   className="inline-block bg-gradient-to-br from-white via-white to-primary-glow bg-clip-text text-transparent"
-                  {...wordAnim(line1.length + i)}
+                  {...wordAnim(t.hero.line1.length + i)}
                 >
                   {w}
-                  {i < line2.length - 1 && "\u00A0"}
+                  {i < t.hero.line2.length - 1 && "\u00A0"}
                 </motion.span>
               ))}
             </span>
@@ -111,9 +104,9 @@ export function Hero() {
             transition={{ duration: 0.7, delay: 0.55, ease: [0.22, 1, 0.36, 1] }}
             className="mx-auto mt-6 max-w-xl text-lg text-muted-foreground"
           >
-            Customers are searching on Google right now. We make sure they find
-            <span className="text-foreground"> you</span> not your competitor.
-            SEO, websites, and AI chatbots built for businesses that convert not just clicks.
+            {t.hero.subtitle}
+            <span className="text-foreground"> {t.hero.subtitleHighlight}</span>
+            {t.hero.subtitleEnd}
           </motion.p>
 
           <motion.div
@@ -130,7 +123,7 @@ export function Hero() {
                 aria-hidden
                 className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-700 group-hover:translate-x-full"
               />
-              <span className="relative">Get My Demo</span>
+              <span className="relative">{t.hero.ctaPrimary}</span>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="relative transition-transform group-hover:translate-x-1">
                 <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
@@ -139,23 +132,19 @@ export function Hero() {
               href="#work"
               className="inline-flex h-12 items-center gap-2 rounded-full border border-border bg-surface/60 px-6 text-sm font-medium text-foreground transition-colors hover:border-primary/40 hover:text-primary-glow"
             >
-              See the results
+              {t.hero.ctaSecondary}
             </a>
           </motion.div>
 
-          {/* Visual Showcase: Interactive Digital Dashboard & AI Chatbot Mockup */}
+          {/* Visual Showcase */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className="mt-14 relative mx-auto max-w-4xl"
           >
-            {/* Glow backdrop effect */}
             <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-primary/30 via-primary-glow/40 to-primary/30 opacity-70 blur-xl animate-pulse-glow" />
-
             <div className="relative overflow-hidden rounded-2xl border border-white/15 bg-surface/80 p-4 shadow-2xl backdrop-blur-xl md:p-6">
-
-              {/* Main Showcase Banner Image */}
               <div className="relative mt-4 overflow-hidden rounded-xl border border-white/10 aspect-[16/9] w-full group/heroimg">
                 <img
                   src="https://46ykd16d8k.ufs.sh/f/GTSgDGA07FisRNJRTYFyXqM6huZeGJ9jf3KFxlBbY2NdCHAD"
@@ -163,14 +152,9 @@ export function Hero() {
                   className="h-full w-full object-cover transition-transform duration-700 group-hover/heroimg:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
-
-
               </div>
             </div>
-
-
           </motion.div>
-
 
           {/* Quick results bar */}
           <motion.div
@@ -179,11 +163,11 @@ export function Hero() {
             transition={{ duration: 0.7, delay: 1.0 }}
             className="mx-auto mt-14 flex max-w-2xl items-center justify-center gap-8 rounded-2xl border border-border/60 bg-surface/50 px-6 py-5 backdrop-blur-sm md:gap-12"
           >
-            {quickStats.map((s, i) => (
+            {t.hero.stats.map((s, i) => (
               <div key={s.l} className="text-center">
                 <div className="font-display text-2xl font-semibold text-primary-glow md:text-3xl">{s.v}</div>
                 <div className="mt-1 text-xs text-muted-foreground md:text-sm">{s.l}</div>
-                {i < quickStats.length - 1 && (
+                {i < t.hero.stats.length - 1 && (
                   <span className="sr-only">·</span>
                 )}
               </div>
@@ -207,4 +191,3 @@ export function Hero() {
     </section>
   );
 }
-

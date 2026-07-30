@@ -1,28 +1,43 @@
 import { useState } from "react";
 import { Reveal } from "./Reveal";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLocale, useT } from "@/lib/useLocale";
+
+// Webhook URLs per language — update these to point to the correct endpoints
+const WEBHOOK_URLS: Record<string, string> = {
+  en: "https://autivex.up.railway.app/webhook-test/290e2994-f914-4872-8068-425394479554",
+  ja: "https://autivex.up.railway.app/webhook-test/290e2994-f914-4872-8068-425394479554",
+};
 
 export function FinalCTA() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [industry, setIndustry] = useState("");
   const [submittedEmail, setSubmittedEmail] = useState("");
+  const locale = useLocale();
+  const t = useT();
+  const f = t.cta.fields;
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
-    const data = Object.fromEntries(formData);
-    
+    const data = Object.fromEntries(formData) as Record<string, string>;
+
     // Use industryOther if 'other' was selected
     if (data.industry === "other") {
       data.industry = data.industryOther;
     }
     delete data.industryOther;
 
+    // ✅ Attach language info to the webhook payload
+    data.language = locale;
+    data.locale = locale === "ja" ? "Japanese" : "English";
+
     setStatus("loading");
-    setSubmittedEmail(data.email as string);
+    setSubmittedEmail(data.email);
 
     try {
-      const response = await fetch("https://autivex.up.railway.app/webhook-test/290e2994-f914-4872-8068-425394479554", {
+      const webhookUrl = WEBHOOK_URLS[locale] ?? WEBHOOK_URLS["en"];
+      const response = await fetch(webhookUrl, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -59,7 +74,7 @@ export function FinalCTA() {
                 backgroundSize: "48px 48px, 72px 72px",
               }}
             />
-            
+
             <div className="relative">
               <AnimatePresence mode="wait">
                 {status === "success" ? (
@@ -80,7 +95,7 @@ export function FinalCTA() {
                         transition={{ duration: 1, delay: 0.2, ease: "easeOut" }}
                         className="absolute inset-0 rounded-full bg-green-400/40"
                       />
-                      
+
                       {/* Circle */}
                       <motion.div
                         initial={{ scale: 0 }}
@@ -92,22 +107,22 @@ export function FinalCTA() {
                           <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                         </svg>
                       </motion.div>
-                      
+
                       {/* Confetti particles */}
                       {Array.from({ length: 8 }).map((_, i) => (
                         <motion.div
                           key={i}
                           initial={{ opacity: 0, scale: 0, x: 0, y: 0 }}
-                          animate={{ 
+                          animate={{
                             opacity: [0, 1, 0],
                             scale: [0, 1, 0],
                             x: Math.cos((i * 45 * Math.PI) / 180) * 80,
-                            y: Math.sin((i * 45 * Math.PI) / 180) * 80
+                            y: Math.sin((i * 45 * Math.PI) / 180) * 80,
                           }}
-                          transition={{ duration: 0.8, delay: 0.3 + (i * 0.02), ease: "easeOut" }}
+                          transition={{ duration: 0.8, delay: 0.3 + i * 0.02, ease: "easeOut" }}
                           className="absolute h-3 w-3 rounded-full"
                           style={{
-                            backgroundColor: ["#FBBF24", "#34D399", "#60A5FA", "#F472B6"][i % 4]
+                            backgroundColor: ["#FBBF24", "#34D399", "#60A5FA", "#F472B6"][i % 4],
                           }}
                         />
                       ))}
@@ -120,19 +135,19 @@ export function FinalCTA() {
                       transition={{ duration: 0.6, delay: 0.8 }}
                       className="mt-8 max-w-md text-center"
                     >
-                      <h3 className="text-3xl font-bold text-white mb-3">You're in! 🎉</h3>
+                      <h3 className="text-3xl font-bold text-white mb-3">{t.cta.successHeading}</h3>
                       <p className="text-white/80 leading-relaxed">
-                        We'll review your request and reach out to <span className="font-semibold text-white">{submittedEmail}</span> within 24 hours with your free demo.
+                        {t.cta.successBody} <span className="font-semibold text-white">{submittedEmail}</span> {t.cta.successBodyEnd}
                       </p>
-                      
-                      <button 
+
+                      <button
                         onClick={() => {
                           setStatus("idle");
                           setIndustry("");
                         }}
                         className="mt-8 text-sm text-white/50 hover:text-white transition-colors"
                       >
-                        Submit another request
+                        {t.cta.submitAnother}
                       </button>
                     </motion.div>
                   </motion.div>
@@ -145,10 +160,10 @@ export function FinalCTA() {
                     transition={{ duration: 0.4 }}
                   >
                     <h2 className="mx-auto max-w-2xl text-balance text-4xl font-semibold text-white md:text-5xl">
-                      We'll send you a Free website demo.
+                      {t.cta.heading}
                     </h2>
                     <p className="mx-auto mt-5 max-w-xl text-white/85">
-                      We'll show you the project demo and we'll see the results. 
+                      {t.cta.subheading}
                     </p>
                     <form
                       onSubmit={handleSubmit}
@@ -159,7 +174,7 @@ export function FinalCTA() {
                         {/* Company Name */}
                         <div className="flex flex-col gap-1 text-left">
                           <label htmlFor="companyName" className="pl-1 text-xs font-medium text-white/70">
-                            Company Name <span className="text-white/50">*</span>
+                            {f.companyName} <span className="text-white/50">*</span>
                           </label>
                           <input
                             id="companyName"
@@ -167,7 +182,7 @@ export function FinalCTA() {
                             type="text"
                             required
                             disabled={status === "loading"}
-                            placeholder="e.g. Apex Plumbing & HVAC"
+                            placeholder={f.companyPlaceholder}
                             className="h-12 rounded-xl border border-white/25 bg-white/10 px-4 text-sm text-white placeholder:text-white/50 outline-none backdrop-blur-md transition-colors focus:border-white/60 focus:bg-white/15 disabled:opacity-50"
                           />
                         </div>
@@ -175,7 +190,7 @@ export function FinalCTA() {
                         {/* Company Industry */}
                         <div className="flex flex-col gap-1 text-left">
                           <label htmlFor="industry" className="pl-1 text-xs font-medium text-white/70">
-                            Company Industry <span className="text-white/50">*</span>
+                            {f.industry} <span className="text-white/50">*</span>
                           </label>
                           <select
                             id="industry"
@@ -186,16 +201,10 @@ export function FinalCTA() {
                             onChange={(e) => setIndustry(e.target.value)}
                             className="h-12 rounded-xl border border-white/25 bg-white/10 px-4 text-sm text-white outline-none backdrop-blur-md transition-colors focus:border-white/60 focus:bg-white/15 disabled:opacity-50 [&>option]:bg-[oklch(0.19_0.05_275)] [&>option]:text-foreground"
                           >
-                            <option value="" disabled>Select your industry…</option>
-                            <option value="plumbing">Plumbing</option>
-                            <option value="hvac">HVAC / Home Services</option>
-                            <option value="dental">Dental / Healthcare</option>
-                            <option value="roofing">Roofing / Construction</option>
-                            <option value="legal">Legal Services</option>
-                            <option value="electrical">Electrical</option>
-                            <option value="landscaping">Landscaping</option>
-                            <option value="hotels">Hotels / Hospitality</option>
-                            <option value="other">Other (please specify)</option>
+                            <option value="" disabled>{f.industryPlaceholder}</option>
+                            {t.cta.industries.map((ind) => (
+                              <option key={ind.value} value={ind.value}>{ind.label}</option>
+                            ))}
                           </select>
                           {industry === "other" && (
                             <input
@@ -205,7 +214,7 @@ export function FinalCTA() {
                               required
                               disabled={status === "loading"}
                               autoFocus
-                              placeholder="e.g. Pet Grooming, Auto Repair…"
+                              placeholder={f.otherPlaceholder}
                               className="mt-2 h-12 rounded-xl border border-white/25 bg-white/10 px-4 text-sm text-white placeholder:text-white/50 outline-none backdrop-blur-md transition-colors focus:border-white/60 focus:bg-white/15 disabled:opacity-50"
                             />
                           )}
@@ -214,7 +223,7 @@ export function FinalCTA() {
                         {/* Contact Number */}
                         <div className="flex flex-col gap-1 text-left">
                           <label htmlFor="phone" className="pl-1 text-xs font-medium text-white/70">
-                            Contact Number <span className="text-white/50">*</span>
+                            {f.phone} <span className="text-white/50">*</span>
                           </label>
                           <input
                             id="phone"
@@ -222,7 +231,7 @@ export function FinalCTA() {
                             type="tel"
                             required
                             disabled={status === "loading"}
-                            placeholder="e.g. (555) 234-5678"
+                            placeholder={f.phonePlaceholder}
                             className="h-12 rounded-xl border border-white/25 bg-white/10 px-4 text-sm text-white placeholder:text-white/50 outline-none backdrop-blur-md transition-colors focus:border-white/60 focus:bg-white/15 disabled:opacity-50"
                           />
                         </div>
@@ -230,7 +239,7 @@ export function FinalCTA() {
                         {/* Email Address */}
                         <div className="flex flex-col gap-1 text-left">
                           <label htmlFor="email" className="pl-1 text-xs font-medium text-white/70">
-                            Email Address <span className="text-white/50">*</span>
+                            {f.email} <span className="text-white/50">*</span>
                           </label>
                           <input
                             id="email"
@@ -238,7 +247,7 @@ export function FinalCTA() {
                             type="email"
                             required
                             disabled={status === "loading"}
-                            placeholder="e.g. alex@company.com"
+                            placeholder={f.emailPlaceholder}
                             className="h-12 rounded-xl border border-white/25 bg-white/10 px-4 text-sm text-white placeholder:text-white/50 outline-none backdrop-blur-md transition-colors focus:border-white/60 focus:bg-white/15 disabled:opacity-50"
                           />
                         </div>
@@ -256,21 +265,21 @@ export function FinalCTA() {
                               <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                               <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                             </svg>
-                            Sending...
+                            {f.sending}
                           </>
                         ) : (
-                          "Get my Free Demo"
+                          f.submit
                         )}
                       </button>
 
                       {status === "error" && (
                         <p className="mt-3 text-sm text-red-300 font-medium">
-                          Something went wrong. Please try again or contact us directly.
+                          {f.error}
                         </p>
                       )}
 
                       <p className="mt-3 text-xs text-white/50">
-                        No credit card required · We respond within 24 hours
+                        {f.fine}
                       </p>
                     </form>
                   </motion.div>

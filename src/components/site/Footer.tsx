@@ -1,34 +1,8 @@
-import { Mail, Phone, MapPin, Twitter, Linkedin, Instagram } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 import { Logo } from "./Logo";
+import { useLocale, useT } from "@/lib/useLocale";
 
-const services = [
-  { label: "Google SEO", href: "#services" },
-  { label: "Websites", href: "#services" },
-  { label: "AI Chatbots", href: "#services" },
-  { label: "Free SEO audit", href: "#audit" },
-];
-
-const company = [
-  { label: "About", href: "#" },
-  { label: "Process", href: "#process" },
-  { label: "Work", href: "#work" },
-  { label: "Contact", href: "#audit" },
-];
-
-const resources = [
-  { label: "FAQ", href: "#faq" },
-  { label: "Case studies", href: "#work" },
-  { label: "Testimonials", href: "#work" },
-  { label: "Blog", href: "#" },
-];
-
-const socials = [
-  { label: "Twitter", href: "#", Icon: Twitter },
-  { label: "LinkedIn", href: "#", Icon: Linkedin },
-  { label: "Instagram", href: "#", Icon: Instagram },
-];
-
-function Column({ title, links }: { title: string; links: { label: string; href: string }[] }) {
+function Column({ title, links }: { title: string; links: ReadonlyArray<{ readonly label: string; readonly href: string }> }) {
   return (
     <div>
       <h4 className="mb-4 text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">
@@ -51,6 +25,12 @@ function Column({ title, links }: { title: string; links: { label: string; href:
 }
 
 export function Footer() {
+  const t = useT();
+  const locale = useLocale();
+
+  const privacyHref = locale === "ja" ? "/ja/privacy" : "/privacy";
+  const termsHref = locale === "ja" ? "/ja/terms" : "/terms";
+
   return (
     <footer className="relative overflow-hidden bg-surface/40">
       {/* Gradient hairline */}
@@ -75,14 +55,13 @@ export function Footer() {
           <div className="md:col-span-2">
             <Logo />
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
-              SEO, websites, and AI chatbots for local service businesses that measure
-              marketing in phone calls and booked jobs not impressions.
+              {t.footer.tagline}
             </p>
 
             <ul className="mt-6 space-y-2.5 text-sm">
               <li>
                 <a
-                  href="mailto:hello@tsmcmarketing.com"
+                  href="mailto:tsmarketingsupport@gmail.com"
                   className="group inline-flex items-center gap-2.5 text-foreground/80 transition-colors hover:text-foreground"
                 >
                   <Mail className="h-4 w-4 text-muted-foreground transition-colors group-hover:text-primary" />
@@ -91,27 +70,27 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="tel:+8170 9065 3941"
+                  href="tel:+817090653941"
                   className="group inline-flex items-center gap-2.5 text-foreground/80 transition-colors hover:text-foreground"
                 >
                   <Phone className="h-4 w-4 text-muted-foreground transition-colors group-hover:text-primary" />
-                  +8170 9065 3941
+                  +81 70 9065 3941
                 </a>
               </li>
             </ul>
           </div>
 
-          <Column title="Services" links={services} />
-          <Column title="Company" links={company} />
+          <Column title={t.footer.services} links={t.footer.serviceLinks} />
+          <Column title={t.footer.company} links={t.footer.companyLinks} />
         </div>
       </div>
 
       <div className="relative border-t border-border/60">
         <div className="mx-auto flex max-w-6xl flex-col items-start justify-between gap-3 px-6 py-5 text-xs text-muted-foreground md:flex-row md:items-center">
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-            <span>© {new Date().getFullYear()} TS Marketing</span>
-            <a href="/privacy" className="transition-colors hover:text-foreground">Privacy</a>
-            <a href="/terms" className="transition-colors hover:text-foreground">Terms</a>
+            <span>© {new Date().getFullYear()} {t.footer.copyright}</span>
+            <a href={privacyHref} className="transition-colors hover:text-foreground">{t.footer.privacyLabel}</a>
+            <a href={termsHref} className="transition-colors hover:text-foreground">{t.footer.termsLabel}</a>
           </div>
         </div>
       </div>
