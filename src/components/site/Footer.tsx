@@ -76,7 +76,7 @@ export function Footer() {
             <Logo />
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
               SEO, websites, and AI chatbots for local service businesses that measure
-              marketing in phone calls and booked jobs — not impressions.
+              marketing in phone calls and booked jobs not impressions.
             </p>
 
             <ul className="mt-6 space-y-2.5 text-sm">
