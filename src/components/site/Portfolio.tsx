@@ -8,7 +8,7 @@ export function Portfolio() {
     <section id="work" className="py-24 md:py-32">
       <div className="mx-auto max-w-6xl px-6">
         <Reveal className="mx-auto max-w-2xl text-center">
-          <p className="text-xs uppercase tracking-[0.2em] text-primary-glow">{t.portfolio.label}</p>
+          <p className="text-xs uppercase tracking-[0.2em] font-semibold text-[#00A832]">{t.portfolio.label}</p>
           <h2 className="mt-4 text-4xl font-semibold md:text-5xl">
             {t.portfolio.heading}
           </h2>
@@ -36,7 +36,7 @@ export function Portfolio() {
                   </div>
                 </div>
                 <div className="flex-1 p-6">
-                  <div className="text-xs uppercase tracking-widest text-primary-glow font-medium">{c.tag}</div>
+                  <div className="text-xs uppercase tracking-widest text-[#00A832] font-semibold">{c.tag}</div>
                   <h3 className="mt-2 text-lg font-semibold leading-snug">
                     <span className="story-link">{c.title}</span>
                   </h3>

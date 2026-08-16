@@ -20,9 +20,9 @@ export const translations = {
       line2: ["Convert", "more."],
       subtitle:
         "Customers are searching on Google right now. We make sure they find",
-      subtitleHighlight: "you",
+      subtitleHighlight: "you.",
       subtitleEnd:
-        "not your competitor. SEO, websites, and AI chatbots built for businesses that convert not just clicks.",
+        " SEO, websites, and AI chatbots built for businesses that convert not just clicks.",
       ctaPrimary: "Get My Demo",
       ctaSecondary: "See the results",
       stats: [

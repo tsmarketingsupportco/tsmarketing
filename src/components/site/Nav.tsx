@@ -50,17 +50,17 @@ export function Nav({ langSwitchHref }: NavProps) {
           {/* Language Switcher */}
           <a
             href={switchHref}
-            className="hidden md:inline-flex h-9 items-center rounded-full border border-border/60 bg-surface/50 px-3 text-xs font-semibold text-muted-foreground transition-all hover:border-primary/40 hover:text-primary-glow"
+            className="hidden md:inline-flex h-9 items-center rounded-full border border-white/10 bg-surface/50 px-3.5 text-xs font-semibold text-muted-foreground transition-all hover:border-[#00A832]/40 hover:text-[#00A832]"
           >
             {switchLabel}
           </a>
           <a
             href="#audit"
-            className="group relative inline-flex h-9 items-center overflow-hidden rounded-full bg-primary px-4 text-sm font-medium text-primary-foreground shadow-[var(--shadow-elegant)] transition-transform hover:scale-[1.04]"
+            className="group relative inline-flex h-9 items-center overflow-hidden rounded-full bg-gradient-to-r from-[#0033A0] to-[#00A832] px-5 text-sm font-semibold text-white shadow-[0_4px_20px_rgba(0,168,50,0.3)] transition-transform hover:scale-[1.04]"
           >
             <span
               aria-hidden
-              className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/25 to-transparent transition-transform duration-700 group-hover:translate-x-full"
+              className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent transition-transform duration-700 group-hover:translate-x-full"
             />
             <span className="relative">{t.nav.cta}</span>
           </a>
