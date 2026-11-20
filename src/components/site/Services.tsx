@@ -43,11 +43,10 @@ export function Services() {
                   key={s.title}
                   type="button"
                   onClick={() => setActiveTab(idx)}
-                  className={`relative flex items-center gap-2.5 rounded-xl px-5 py-3 text-sm font-semibold transition-all duration-300 ${
-                    isActive
+                  className={`relative flex items-center gap-2.5 rounded-xl px-5 py-3 text-sm font-semibold transition-all duration-300 ${isActive
                       ? "text-white shadow-lg shadow-[#0033A0]/30"
                       : "text-muted-foreground hover:text-white"
-                  }`}
+                    }`}
                 >
                   {isActive && (
                     <motion.div
@@ -173,11 +172,10 @@ export function Services() {
                               key={p.q}
                               type="button"
                               onClick={() => setActivePrompt(idx)}
-                              className={`rounded-lg px-2.5 py-1 text-[11px] font-semibold backdrop-blur-md transition-all ${
-                                activePrompt === idx
+                              className={`rounded-lg px-2.5 py-1 text-[11px] font-semibold backdrop-blur-md transition-all ${activePrompt === idx
                                   ? "bg-[#00A832] text-white shadow-md"
                                   : "bg-background/80 text-muted-foreground hover:text-white"
-                              }`}
+                                }`}
                             >
                               {p.q}
                             </button>

@@ -103,7 +103,13 @@ export function FinalCTA() {
                         transition={{ type: "spring", stiffness: 200, damping: 15 }}
                         className="absolute inset-0 flex items-center justify-center rounded-full bg-green-500 shadow-[0_0_30px_rgba(34,197,94,0.5)]"
                       >
-                        <svg className="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                        <svg
+                          className="h-10 w-10 text-white"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={3}
+                        >
                           <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                         </svg>
                       </motion.div>
@@ -137,7 +143,9 @@ export function FinalCTA() {
                     >
                       <h3 className="text-3xl font-bold text-white mb-3">{t.cta.successHeading}</h3>
                       <p className="text-white/80 leading-relaxed">
-                        {t.cta.successBody} <span className="font-semibold text-white">{submittedEmail}</span> {t.cta.successBodyEnd}
+                        {t.cta.successBody}{" "}
+                        <span className="font-semibold text-white">{submittedEmail}</span>{" "}
+                        {t.cta.successBodyEnd}
                       </p>
 
                       <button
@@ -162,9 +170,7 @@ export function FinalCTA() {
                     <h2 className="mx-auto max-w-2xl text-balance text-4xl font-semibold text-white md:text-5xl">
                       {t.cta.heading}
                     </h2>
-                    <p className="mx-auto mt-5 max-w-xl text-white/85">
-                      {t.cta.subheading}
-                    </p>
+                    <p className="mx-auto mt-5 max-w-xl text-white/85">{t.cta.subheading}</p>
                     <form
                       onSubmit={handleSubmit}
                       className="mx-auto mt-10 w-full max-w-xl relative"
@@ -173,7 +179,10 @@ export function FinalCTA() {
                       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                         {/* Company Name */}
                         <div className="flex flex-col gap-1 text-left">
-                          <label htmlFor="companyName" className="pl-1 text-xs font-medium text-white/70">
+                          <label
+                            htmlFor="companyName"
+                            className="pl-1 text-xs font-medium text-white/70"
+                          >
                             {f.companyName} <span className="text-white/50">*</span>
                           </label>
                           <input
@@ -189,7 +198,10 @@ export function FinalCTA() {
 
                         {/* Company Industry */}
                         <div className="flex flex-col gap-1 text-left">
-                          <label htmlFor="industry" className="pl-1 text-xs font-medium text-white/70">
+                          <label
+                            htmlFor="industry"
+                            className="pl-1 text-xs font-medium text-white/70"
+                          >
                             {f.industry} <span className="text-white/50">*</span>
                           </label>
                           <select
@@ -201,9 +213,13 @@ export function FinalCTA() {
                             onChange={(e) => setIndustry(e.target.value)}
                             className="h-12 rounded-xl border border-white/25 bg-white/10 px-4 text-sm text-white outline-none backdrop-blur-md transition-colors focus:border-white/60 focus:bg-white/15 disabled:opacity-50 [&>option]:bg-[#081230] [&>option]:text-white"
                           >
-                            <option value="" disabled>{f.industryPlaceholder}</option>
+                            <option value="" disabled>
+                              {f.industryPlaceholder}
+                            </option>
                             {t.cta.industries.map((ind) => (
-                              <option key={ind.value} value={ind.value}>{ind.label}</option>
+                              <option key={ind.value} value={ind.value}>
+                                {ind.label}
+                              </option>
                             ))}
                           </select>
                           {industry === "other" && (
@@ -257,13 +273,29 @@ export function FinalCTA() {
                       <button
                         type="submit"
                         disabled={status === "loading"}
-                        className="mt-4 inline-flex w-full h-12 items-center justify-center gap-2 rounded-xl bg-white px-6 text-sm font-bold text-[#0033A0] transition-all hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] disabled:opacity-80 disabled:hover:scale-100 disabled:hover:shadow-none"
+                        className="mt-4 inline-flex w-full h-12 items-center justify-center gap-2 rounded-xl bg-white px-6 text-sm font-bold text-black transition-all hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(255,255,255,0.4)] disabled:opacity-80 disabled:hover:scale-100 disabled:hover:shadow-none"
                       >
                         {status === "loading" ? (
                           <>
-                            <svg className="h-5 w-5 animate-spin text-[#0033A0]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            <svg
+                              className="h-5 w-5 animate-spin text-black"
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                            >
+                              <circle
+                                className="opacity-25"
+                                cx="12"
+                                cy="12"
+                                r="10"
+                                stroke="currentColor"
+                                strokeWidth="4"
+                              ></circle>
+                              <path
+                                className="opacity-75"
+                                fill="currentColor"
+                                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                              ></path>
                             </svg>
                             {f.sending}
                           </>
@@ -273,14 +305,10 @@ export function FinalCTA() {
                       </button>
 
                       {status === "error" && (
-                        <p className="mt-3 text-sm text-red-300 font-medium">
-                          {f.error}
-                        </p>
+                        <p className="mt-3 text-sm text-red-300 font-medium">{f.error}</p>
                       )}
 
-                      <p className="mt-3 text-xs text-white/50">
-                        {f.fine}
-                      </p>
+                      <p className="mt-3 text-xs text-white/50">{f.fine}</p>
                     </form>
                   </motion.div>
                 )}
